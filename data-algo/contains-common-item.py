@@ -29,4 +29,4 @@ def find_common_item(arr1, arr2):
 
 print(find_common_item(['a', 'b','c','x'],['z', 'y', 'x']))
 print(find_common_item(['a', 'b','c','x'],['z', 'y', 'i']))
-print(find_common_item([],[]))
+print(find_common_item([[]],[[]]))
