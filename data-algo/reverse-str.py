@@ -8,6 +8,8 @@ def reverse_str_splice(s):
 #using loop and swaping items using 1st and last indexes
 
 def reverse_str(s):
+    if s != str or len(s) < 2:
+        return "please input a string longer that 1 character"
     #start index
     begin = 0
     #end index
@@ -29,6 +31,7 @@ def reverse_str2(s):
     for i in range(len(s)-1, 0 -1, -1):
         r += s[i]
     return r
+    
 def reverse_str3(s):
     r = ''
     i = len(s) - 1
@@ -43,3 +46,6 @@ print(reverse_str_splice('Hi my name is Gaby'))
 print(reverse_str('Hi my name is Gaby'))
 print(reverse_str2('Hi my name is Gaby'))
 print(reverse_str3('Hi my name is Gaby'))
+
+print(reverse_str(0))
+print(reverse_str('H'))
