@@ -7,7 +7,7 @@ def has_pair_with_sum(arr, s):
 
     #loop through arr
     
-    for i in range(len(arr)-1):
+    for i in range(len(arr)):
         #if arr[i] is in seen_set return true
         if arr[i] in seen_set:
             return True
