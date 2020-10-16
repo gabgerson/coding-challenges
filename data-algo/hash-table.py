@@ -50,7 +50,21 @@ class HashTable:
 
         return keys_arr
 
+    def _values(self):
 
+        values_arr = []
+        for i in range(self.size):
+          if self.data[i] != None:
+              if len(self.data[i]) > 1:
+                  for j in range(len(self.data[i])):
+                      values_arr.append(self.data[i][j][1])
+
+              else:
+                  values_arr.append(self.data[i][0][1])
+              
+        
+
+        return values_arr
 
 
 
@@ -65,4 +79,5 @@ my_hash._set('o', 2)
 
 print(my_hash._get('grapes'))
 print(my_hash._keys())
-print(my_hash.data)
+print(my_hash._values())
+# print(my_hash.data)
