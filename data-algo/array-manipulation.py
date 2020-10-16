@@ -16,3 +16,4 @@ def arrayManipulation(n, queries):
             max_num = num
 
     return max_num
+    
