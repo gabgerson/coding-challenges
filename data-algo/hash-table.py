@@ -32,15 +32,37 @@ class HashTable:
                 if current_bucket[i][0] == key:
                     return current_bucket[i][1]
         return None
-           
+    
+    def _keys(self):
+        keys_arr = []
+
+        for i in range(self.size):
+            if self.data[i] != None:
+                if len(self.data[i]) > 1:
+                    for j in range(len(self.data[i])):
+                        keys_arr.append(self.data[i][j][0])
+   
+                else:
+
+                    keys_arr.append(self.data[i][0][0])
+              
+        
+
+        return keys_arr
 
 
 
 
-my_hash = HashTable(50)
+
+
+my_hash = HashTable(2)
 
 # print(my_hash._set('grapes', 10000))
 my_hash._set('grapes', 10000)
-# print(my_hash._set('apples', 54))
+my_hash._set('apples', 54)
+my_hash._set('oranges', 2)
+my_hash._set('o', 2)
+
 print(my_hash._get('grapes'))
-# print(my_hash.data)
+print(my_hash._keys())
+print(my_hash.data)
