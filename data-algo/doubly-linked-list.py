@@ -1,18 +1,17 @@
-#define Node class so we can initialize nodes that will go
-#into linkedlist
 class Node:
 
     def __init__(self, value):
         self.value = value #nodes value
         self.next = None #node's next on instantiation is none
+        self.prev = None
 
-class LinkedList:
+class DoublyLinkedList:
 
     def __init__(self):
         self.head = None #store linked list head
         self.tail = None#store tail
         self.length = 0 #store length
-
+    
     def _append(self, value):
 
         new_node = Node(value)
@@ -21,6 +20,7 @@ class LinkedList:
             self.head = new_node
             self.tail = self.head
         else:
+            new_node.prev = self.tail
             self.tail.next = new_node
             self.tail = new_node
         
@@ -32,6 +32,7 @@ class LinkedList:
             self.head = new_node
             self.tail = self.head
         else:
+            self.head.prev = new_node
             new_node.next = self.head
             self.head = new_node
         self.length += 1
@@ -74,8 +75,10 @@ class LinkedList:
             while i <= index:
 
                 if i == index - 1:
+                    new_node.prev = current_node
                     new_node.next = current_node.next
                     current_node.next = new_node
+                    new_node.next.prev = new_node
                     self.length += 1
                     return self.print_list()
                     
@@ -87,6 +90,7 @@ class LinkedList:
 
         if index == 0:
             self.head = self.head.next
+            self.head.prev = None
             self.length -= 1
             return self.print_list()
 
@@ -107,6 +111,11 @@ class LinkedList:
                         self.tail = current_node
 
                     current_node.next = current_node.next.next
+
+                    if current_node.next != None:
+
+                        current_node.next.prev = current_node
+
                     self.length -= 1
 
                     return self.print_list()
@@ -114,7 +123,8 @@ class LinkedList:
                 current_node = current_node.next
                 i +=1
 
-my_linked_list = LinkedList()
+
+my_linked_list = DoublyLinkedList()
 my_linked_list.prepend(20)
 my_linked_list._append(10)
 my_linked_list._append(15)
@@ -122,5 +132,6 @@ my_linked_list._append(14)
 my_linked_list.print_list()
 my_linked_list._insert(3, 50)
 my_linked_list._remove(4)
-print(my_linked_list.tail.next)
-# print(my_linked_list.head.next)
+print(my_linked_list.tail.prev.prev.prev.value)
+print(my_linked_list.tail.value)
+print(my_linked_list.head.next.value)
