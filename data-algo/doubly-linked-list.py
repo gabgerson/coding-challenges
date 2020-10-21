@@ -50,15 +50,6 @@ class DoublyLinkedList:
                 current_node = current_node.next
         print(ls)
         
-    # def print_list(self):
-    #     if self.head == None:
-    #         print("Empty")
-    #     else:
-    #         current_node = self.head
-    #         while current_node!= None:
-    #             print(current_node.value, end= ' ')
-    #             current_node = current_node.next
-    #     # print()
 
     def _insert(self, index, value):
         if index == 0:
@@ -135,3 +126,4 @@ my_linked_list._remove(4)
 print(my_linked_list.tail.prev.prev.prev.value)
 print(my_linked_list.tail.value)
 print(my_linked_list.head.next.value)
+print(my_linked_list.length)

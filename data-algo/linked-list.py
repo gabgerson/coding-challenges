@@ -113,6 +113,33 @@ class LinkedList:
                     
                 current_node = current_node.next
                 i +=1
+    def _reverse(self):
+        
+
+        #keep track of current_node
+        current_node = self.head
+        #keep track of next_node
+        next_node = None
+        #keep track of prev
+        prev = None
+            
+        self.tail = self.head
+        while current_node:
+        
+    
+            next_node = current_node.next
+            current_node.next = prev
+            prev = current_node
+           
+            current_node = next_node
+    
+            if current_node == None:
+                
+                self.head = prev
+                
+
+        return self.print_list()
+                
 
 my_linked_list = LinkedList()
 my_linked_list.prepend(20)
@@ -122,5 +149,8 @@ my_linked_list._append(14)
 my_linked_list.print_list()
 my_linked_list._insert(3, 50)
 my_linked_list._remove(4)
-print(my_linked_list.tail.next)
-# print(my_linked_list.head.next)
+my_linked_list._reverse()
+print(my_linked_list.tail.value)
+print(my_linked_list.head.value)
+# print(my_linked_list.tail.next)
+# print(my_linked_list.head.next.value)
