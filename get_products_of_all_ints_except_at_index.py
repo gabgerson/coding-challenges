@@ -30,3 +30,5 @@ def get_products_of_all_ints_except_at_index(arr):
 
 
 print(get_products_of_all_ints_except_at_index([1, 0, 3, 4]))
+
+
