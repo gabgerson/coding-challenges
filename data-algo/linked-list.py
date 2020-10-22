@@ -114,7 +114,8 @@ class LinkedList:
                 current_node = current_node.next
                 i +=1
     def _reverse(self):
-        
+        if self.head.next == None:
+            return self.head
 
         #keep track of current_node
         current_node = self.head
