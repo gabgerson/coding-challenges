@@ -19,19 +19,62 @@ class Stack:
         
         #if nothing is in the stack item being pushed is bottom and top
         new_node = Node(value)
-        if self.bottom == None:
+        if self.top == None:
             self.top = new_node
             self.bottom = new_node
         
         else:
             
-            #current top's next is new_node
-            self.top.next = new_node
+            #new_node's next is current top
+            new_node.next = self.top
             #add node to top of stack
             self.top = new_node
 
+        self.length += 1
+
     def _pop(self):
-        pass
+        #if nothing is in the stack print(empty)
+        if self.top == None:
+            print("Empty")
+        else:
+            #get top 
+            popped_node = self.top
+            #set top to current self.top's next
+
+            self.top = self.top.next
+            self.length -= 1
+            #if top is None then list is empty so reset bottom to None
+            if self.top == None:
+                self.bottom == None
+
+            return popped_node.value
+
+
+    def print_stack(self):
+        ls = list()
+        if self.top == None:
+            print("Empty")
+       
+        else:
+            current_node = self.top
+            while current_node != None:
+                ls.append(current_node.value)
+                current_node = current_node.next
+        print(ls)
 
 my_stack = Stack()
 
+my_stack.push(5)
+my_stack.push(7)
+my_stack.push(8)
+my_stack.push(9)
+my_stack.push(10)
+my_stack.push(20)
+
+my_stack.print_stack()
+print(my_stack.bottom.value)
+print(my_stack.top.value)
+print(my_stack.bottom.next)
+
+print(my_stack._pop())
+my_stack.print_stack()
