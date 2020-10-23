@@ -1,4 +1,5 @@
 from random import randint 
+
 def shuffle_in_place(int_list):
     #loop through list
     for i in range(len(int_list)):
