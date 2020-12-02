@@ -17,3 +17,5 @@ def arrayManipulation(n, queries):
 
     return max_num
     
+    #https://www.hackerrank.com/challenges/crush/forum/comments/505698
+    #good explanation
