@@ -1,0 +1,14 @@
+def productSum(array, multiplyer =1):
+
+
+    product_sum = 0
+   
+    for i in range(len(array)):
+    
+        if isinstance(array[i], int):
+            product_sum += array[i]
+        else:
+           product_sum = product_sum + (productSum(array[i], multiplyer + 1) * (multiplyer + 1))
+
+  
+    return product_sum
