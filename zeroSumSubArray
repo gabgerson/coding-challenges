@@ -1,0 +1,16 @@
+def zeroSumSubarray(nums):
+    # Write your code here.
+    if nums == []:
+        return False
+    if sum(nums) == 0:
+        return True
+    sums_set = set([0])
+    
+    current=0
+    
+    for num in nums:
+        if current + num in sums_set:
+            return True
+        current+=num
+        sums_set.add(current)
+    return False
